@@ -1,5 +1,37 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import loginImage from "../../Assets/login.jpg";
+
+export const Section = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  gap: 2rem;
+
+  &::before {
+    content: "";
+    display: block;
+    background: url(${loginImage}) no-repeat center center;
+    background-size: cover;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+
+    &::before {
+      display: none;
+    }
+  }
+`;
+
+export const Container = styled.div`
+  max-width: 30rem;
+  padding: 1rem;
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
+`;
 
 export const Form = styled.form`
   margin-bottom: 2rem;
