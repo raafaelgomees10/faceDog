@@ -9,7 +9,7 @@ export default Button;
 
 const Buttons = styled.button`
   font-size: 1rem;
-  font-family: var(--type-first);
+  font-family: Helvetica, Arial, sans-serif;
   cursor: pointer;
   border: none;
   border-radius: 0.4rem;

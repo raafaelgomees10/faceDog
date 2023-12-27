@@ -1,54 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import Input from "../form/Input";
 import Button from "../form/Button";
 import useForm from "../../Hooks/useForm";
-import { TOKEN_POST, USER_GET } from "../../api";
-const Login = () => {
-  const username = useForm();
-  const password = useForm();
+import { UserContext } from "../../UserContext";
+import Helper from "../helper";
+import * as S from "./styles.js";
 
+const Login = () => {
+  const { login } = useContext(UserContext);
   useEffect(() => {
-    const token = window.localStorage.getItem("token");
-    if (token) {
-      getUser(token);
+    if (login === true) {
+      return <Navigate to="/conta" />;
     }
   }, []);
 
-  const getUser = async (token) => {
-    const { url, options } = USER_GET(token);
-    const response = await fetch(url, options);
-    const json = await response.json();
-    console.log(json);
-  };
+  const username = useForm();
+  const password = useForm();
+
+  const { userLogin, error, loading } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      const { url, options } = TOKEN_POST({
-        username: username.value,
-        password: password.value,
-      });
-
-      const response = await fetch(url, options);
-      const json = await response.json();
-
-      window.localStorage.setItem("token", json.token);
-      getUser(json.token);
+      userLogin(username.value, password.value);
     }
   };
-
   return (
-    <section>
-      <h1>Login</h1>
+    <section className="animationLeft">
+      <h1 className="title">Login</h1>
 
-      <form action="" onSubmit={handleSubmit}>
+      <S.Form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
-        <Button>Entrar</Button>
-      </form>
-      <Link to="/login/cadastrar">Cadastro</Link>
+
+        {loading ? (
+          <Button disabled>Carregando...</Button>
+        ) : (
+          <Button>Entrar</Button>
+        )}
+
+        {error && <Helper error={error} />}
+      </S.Form>
+      <S.LinkRecovery to="/login/recuperar">Perdeu a senha?</S.LinkRecovery>
+      <S.Box>
+        <S.SubTitle>Cadastre-se</S.SubTitle>
+        <p>Ainda não possui conta? Cadastre-se no site</p>
+        <S.LinkCreate to="/login/cadastrar">Cadastro</S.LinkCreate>
+      </S.Box>
       <Outlet />
     </section>
   );
