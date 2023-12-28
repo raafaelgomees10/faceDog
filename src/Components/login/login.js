@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import * as S from "./styles.js";
 import Input from "../form/Input.js";
 import Button from "../form/Button.js";
-import Helper from "../helper/index.js";
+import Error from "../helper/error.js";
 import useForm from "../../Hooks/useForm.js";
 import { UserContext } from "../../UserContext.js";
 
@@ -33,7 +33,7 @@ const Login = () => {
           <Button>Entrar</Button>
         )}
 
-        {error && <Helper error={error} />}
+        {error && <Error error={error} />}
       </S.Form>
       <S.LinkRecovery to="/login/recuperar">Perdeu a senha?</S.LinkRecovery>
       <S.Box>

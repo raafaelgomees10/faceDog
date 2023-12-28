@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import Error from "../../../helper/error";
 import Input from "../../../form/Input";
 import Button from "../../../form/Button";
-import useForm from "../../../../Hooks/useForm";
 import { CREATE_USER } from "../../../../api";
+import useForm from "../../../../Hooks/useForm";
+import useFetch from "../../../../Hooks/useFetch";
 import { UserContext } from "../../../../UserContext";
 
 const CreateUser = () => {
@@ -11,6 +13,7 @@ const CreateUser = () => {
   const email = useForm("email");
 
   const { userLogin } = useContext(UserContext);
+  const { loading, error, request } = useFetch();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +24,7 @@ const CreateUser = () => {
       password: password.value,
     });
 
-    const response = await fetch(url, options);
+    const { response } = await request(url, options);
     if (response.ok) {
       userLogin(username.value, password.value);
     }
@@ -34,7 +37,12 @@ const CreateUser = () => {
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="E-mail" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
-        <Button>Caadastrar</Button>
+        {loading ? (
+          <Button disabled>Cadastrando...</Button>
+        ) : (
+          <Button>Cadastrar</Button>
+        )}
+        <Error error={error} />
       </form>
     </section>
   );
