@@ -20,7 +20,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="animationLeft">
+    <div className="animeLeft">
       <h1 className="title">Login</h1>
 
       <S.Form onSubmit={handleSubmit}>

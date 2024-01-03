@@ -31,7 +31,7 @@ const CreateUser = () => {
   };
 
   return (
-    <section className="animationLeft">
+    <section className="animeLeft">
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
