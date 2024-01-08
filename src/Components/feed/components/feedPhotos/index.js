@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles.js";
-import { useEffect } from "react";
-import Error from "../helper/error";
-import { PHOTOS_GET } from "../../api";
-import Loading from "../helper/loading";
-import useFetch from "../../Hooks/useFetch";
-import FeedPhotosItem from "./FeedPhotosItem";
+import Error from "../../../helper/error.js";
+import FeedPhotosItem from "../feedPhotosItem";
+import { PHOTOS_GET } from "../../../../api.js";
+import Loading from "../../../helper/loading.js";
+import useFetch from "../../../../Hooks/useFetch.js";
 
-const FeedPhotos = () => {
+const FeedPhotos = ({ setModalPhoto }) => {
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
@@ -29,7 +28,11 @@ const FeedPhotos = () => {
     return (
       <S.Ul className="animeLeft">
         {data.map((photo) => (
-          <FeedPhotosItem key={photo.id} photo={photo} />
+          <FeedPhotosItem
+            key={photo.id}
+            photo={photo}
+            setModalPhoto={setModalPhoto}
+          />
         ))}
       </S.Ul>
     );
