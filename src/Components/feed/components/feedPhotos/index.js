@@ -19,11 +19,12 @@ const FeedPhotos = ({ setModalPhoto }) => {
   }, [request]);
 
   if (error) {
-    <Error error={error} />;
+    return <Error error={error} />;
   }
   if (loading) {
-    <Loading />;
+    return <Loading />;
   }
+
   if (data) {
     return (
       <S.Ul className="animeLeft">

@@ -9,6 +9,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+  padding: 1rem 0 0 2rem;
   margin-bottom: 0.5rem;
   line-height: 1.2;
 `;
