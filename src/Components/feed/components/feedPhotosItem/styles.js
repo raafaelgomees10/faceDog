@@ -18,10 +18,10 @@ export const Li = styled.li`
       grid-row: initial;
     }
   }
-`;
 
-export const Image = styled.img`
-  grid-area: 1/1;
+  > div {
+    grid-area: 1/1;
+  }
 `;
 
 export const Span = styled.span`

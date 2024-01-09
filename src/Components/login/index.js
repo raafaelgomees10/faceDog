@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import Login from "./login.js";
+import * as S from "./styles.js";
 import { UserContext } from "../../UserContext";
 import CreateUser from "./components/createUser/index";
 import ResetPassword from "./components/createUser/index";
 import ForgotPassword from "./components/createUser/index";
 import { Navigate, Route, Routes } from "react-router-dom";
-import * as S from "./styles.js";
 
 const LoginRouter = () => {
   const { login } = useContext(UserContext);

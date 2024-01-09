@@ -37,8 +37,6 @@ export const Content = styled.div`
   }
 `;
 
-export const Image = styled.img``;
-
 export const Author = styled.p`
   opacity: 1;
   margin-bottom: 1rem;
