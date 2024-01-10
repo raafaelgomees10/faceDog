@@ -1,15 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FeedModal from "./components/feedModal/";
 import FeedPhotos from "./components/feedPhotos";
 
-const Feed = () => {
+const Feed = ({ user }) => {
+  const [pages, setPages] = useState([1]);
   const [modalPhoto, setModalPhoto] = useState(null);
+  const [infinite, setInfinite] = useState(true);
+  //estado que define se deve continuar ou não fazedo o scroll
+  useEffect(() => {
+    let wait = false;
+
+    const infiniteScroll = () => {
+      if (infinite) {
+        const scroll = window.scrollY; //total de scroll rolado na pagina
+        const height = document.body.offsetHeight - window.innerHeight; //tamanho total da pagina
+
+        // quando scroll for maior que 75% da pagina ativa a função
+        if (scroll > height * 0.75 && !wait) {
+          setPages((pages) => [...pages, pages.length + 1]);
+          wait = true;
+          //para função não ficar ativando o tempo todo criamos o wait
+          setTimeout(() => {
+            wait = false;
+          }, 500);
+        }
+      }
+    };
+
+    window.addEventListener("wheel", infiniteScroll);
+    window.addEventListener("scroll ", infiniteScroll);
+
+    return () => {
+      window.removeEventListener("wheel", infiniteScroll);
+      window.removeEventListener("scroll ", infiniteScroll);
+    };
+  }, [infinite]);
+
   return (
     <div>
       {modalPhoto && (
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
-      <FeedPhotos setModalPhoto={setModalPhoto} />
+      {pages.map((page) => (
+        <FeedPhotos
+          key={page}
+          user={user}
+          page={page}
+          setInfinite={setInfinite}
+          setModalPhoto={setModalPhoto}
+        />
+      ))}
     </div>
   );
 };
