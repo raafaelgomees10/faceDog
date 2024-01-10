@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Login from "./login.js";
 import * as S from "./styles.js";
+import NotFound from "../notFound/index.js";
 import { UserContext } from "../../UserContext";
 import CreateUser from "./components/createUser/index";
 import ResetPassword from "./components/createUser/index";
@@ -21,6 +22,7 @@ const LoginRouter = () => {
       <S.Container>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="cadastrar" element={<CreateUser />} />
           <Route path="recuperar" element={<ForgotPassword />} />
           <Route path="resetar" element={<ResetPassword />} />

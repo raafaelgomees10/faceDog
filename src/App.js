@@ -6,9 +6,11 @@ import Photo from "./Components/photo";
 import Header from "./Components/header";
 import Footer from "./Components/footer";
 import { UserStorage } from "./UserContext";
+import NotFound from "./Components/notFound";
 import LoginRouter from "./Components/login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./Components/helper/protectedRoute";
+import UserProfile from "./Components/user/components/userProfile";
 
 const App = () => {
   return (
@@ -19,8 +21,10 @@ const App = () => {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="login/*" element={<LoginRouter />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="foto/:id" element={<Photo />} />
+            <Route path="login/*" element={<LoginRouter />} />
+            <Route path="perfil/:user" element={<UserProfile />} />
             <Route
               path="conta/*"
               element={
