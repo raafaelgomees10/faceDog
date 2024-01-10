@@ -27,11 +27,21 @@ export const Container = styled.div`
     overflow-y: auto;
     grid-template-columns: minmax(20rem, 40rem);
   }
+
+  &.single {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 `;
 
 export const Content = styled.div`
   grid-row: 1/4;
 
+  &.row {
+    grid-row: 1;
+    border-radius: 0.4rem;
+    overflow: hidden;
+  }
   @media (max-width: 1023px) {
     grid-row: 1;
   }
@@ -47,11 +57,6 @@ export const Author = styled.p`
   > a:hover {
     text-decoration: underline;
   }
-
-  /* 
-    .comments{
-        padding: 0 2rem;
-    } */
 `;
 
 export const Viewers = styled.span`
@@ -67,9 +72,13 @@ export const Viewers = styled.span`
 
 export const Details = styled.div`
   padding: 2rem 2rem 0 2rem;
+
+  &.fix {
+    padding: 1rem 0 0 0;
+  }
 `;
 
-export const Attributes = styled.ul`
+export const List = styled.ul`
   display: flex;
   font-size: 1.125rem;
   font-weight: bold;
@@ -90,5 +99,21 @@ export const Attributes = styled.ul`
       background: #333;
       margin-top: 5px;
     }
+  }
+`;
+
+export const Item = styled.li`
+  margin-right: 2rem;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    margin-right: 0.5rem;
+    position: relative;
+    top: 3px;
+    width: 2px;
+    background: #333;
+    margin-top: 5px;
   }
 `;

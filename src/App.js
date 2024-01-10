@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import Home from "./Components/home";
 import User from "./Components/user";
+import Photo from "./Components/photo";
 import Header from "./Components/header";
 import Footer from "./Components/footer";
 import { UserStorage } from "./UserContext";
@@ -19,6 +20,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="login/*" element={<LoginRouter />} />
+            <Route path="foto/:id" element={<Photo />} />
             <Route
               path="conta/*"
               element={

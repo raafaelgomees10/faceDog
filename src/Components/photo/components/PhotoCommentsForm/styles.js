@@ -5,6 +5,10 @@ export const Form = styled.form`
   grid-template-columns: 1fr auto;
   align-items: stretch;
   margin: 1rem;
+
+  &.single {
+    margin: 1rem 0;
+  }
 `;
 
 export const Textarea = styled.textarea`

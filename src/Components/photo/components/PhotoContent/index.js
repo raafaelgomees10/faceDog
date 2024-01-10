@@ -6,16 +6,16 @@ import PhotoDelete from "../photoDelete/index.js";
 import PhotoComments from "../PhotoComments/index.js";
 import { UserContext } from "../../../../UserContext.js";
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
   const user = useContext(UserContext);
   const { photo, comments } = data;
 
   return (
-    <S.Container>
-      <S.Content>
+    <S.Container className={`${single ? "single" : ""}`}>
+      <S.Content className={`${single ? "row" : ""}`}>
         <Image src={photo.src} alt={photo.title} />
       </S.Content>
-      <S.Details>
+      <S.Details className={`${single ? "fix" : ""}`}>
         <div>
           <S.Author>
             {user.data && user.data.username === photo.author ? (
@@ -30,13 +30,13 @@ const PhotoContent = ({ data }) => {
           <h1 className="title">
             <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
           </h1>
-          <ul>
-            <li>{photo.peso} kg</li>
-            <li>{photo.idade} anos</li>
-          </ul>
+          <S.List>
+            <S.Item>{photo.peso} kg</S.Item>
+            <S.Item>{photo.idade} anos</S.Item>
+          </S.List>
         </div>
       </S.Details>
-      <PhotoComments id={photo.id} comments={comments} />
+      <PhotoComments single={single} id={photo.id} comments={comments} />
     </S.Container>
   );
 };

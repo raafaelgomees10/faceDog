@@ -14,17 +14,26 @@ const PhotoComments = (props) => {
   }, [comments]);
 
   return (
-    <S.Container>
-      <S.List ref={commentsSection}>
+    <>
+      <S.List
+        className={`${props.single ? "single" : ""}`}
+        ref={commentsSection}
+      >
         {comments.map((comment) => (
           <S.Item key={comment.comment_ID}>
-            <strong>{comment.comment_author}:</strong>
+            <strong>{comment.comment_author}: </strong>
             <span>{comment.comment_content}</span>
           </S.Item>
         ))}
       </S.List>
-      {login && <PhotoCommentsForm setComments={setComments} id={props.id} />}
-    </S.Container>
+      {login && (
+        <PhotoCommentsForm
+          id={props.id}
+          single={props.single}
+          setComments={setComments}
+        />
+      )}
+    </>
   );
 };
 
