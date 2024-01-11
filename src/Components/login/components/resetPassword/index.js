@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Input from "../../../form/Input";
+import Head from "../../../helper/head";
 import Button from "../../../form/Button";
 import Error from "../../../helper/error";
 import { useNavigate } from "react-router-dom";
@@ -48,6 +49,8 @@ const ResetPassword = () => {
   };
   return (
     <div>
+      <Head title="Resete a senha" />
+
       <h1 className="title">Resete a senha</h1>
       <form onSubmit={handleSubmit}>
         <Input

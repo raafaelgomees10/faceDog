@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Input from "../../../form/Input";
+import Head from "../../../helper/head";
 import Error from "../../../helper/error";
 import Button from "../../../form/Button";
 import { CREATE_USER } from "../../../../api";
@@ -32,6 +33,8 @@ const CreateUser = () => {
 
   return (
     <section className="animeLeft">
+      <Head title="Crie sua conta" />
+
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />

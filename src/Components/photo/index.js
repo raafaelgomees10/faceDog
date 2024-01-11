@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import useFetch from "../../Hooks/useFetch";
-import { PHOTO_GET } from "../../api";
+import Head from "../helper/head";
 import Error from "../helper/error";
+import { PHOTO_GET } from "../../api";
 import Loading from "../helper/loading";
+import useFetch from "../../Hooks/useFetch";
+import { useParams } from "react-router-dom";
 import PhotoContent from "./components/PhotoContent";
 
 const Photo = () => {
@@ -27,6 +28,8 @@ const Photo = () => {
   if (data) {
     return (
       <section className="container mainContainer">
+        <Head title={data.photo.title} />
+
         <PhotoContent single={true} data={data} />
       </section>
     );

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import * as S from "./styles.js";
 import Feed from "../feed/index.js";
+import Head from "../helper/head.js";
 import NotFound from "../notFound/index.js";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/index.js";
@@ -12,6 +13,8 @@ const User = () => {
   const { data } = useContext(UserContext);
   return (
     <S.Section className="container">
+      <Head title="Minha Conta" />
+
       <Header />
       <Routes>
         <Route path="*" element={<NotFound />} />

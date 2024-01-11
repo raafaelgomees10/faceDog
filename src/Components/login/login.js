@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import * as S from "./styles.js";
 import Input from "../form/Input.js";
+import Head from "../helper/head.js";
 import Button from "../form/Button.js";
 import Error from "../helper/error.js";
 import useForm from "../../Hooks/useForm.js";
@@ -20,7 +21,8 @@ const Login = () => {
     }
   };
   return (
-    <div className="animeLeft">
+    <section className="animeLeft">
+      <Head title="Login" />
       <h1 className="title">Login</h1>
 
       <S.Form onSubmit={handleSubmit}>
@@ -41,7 +43,7 @@ const Login = () => {
         <p>Ainda não possui conta? Cadastre-se no site</p>
         <S.LinkCreate to="/login/cadastrar">Cadastro</S.LinkCreate>
       </S.Box>
-    </div>
+    </section>
   );
 };
 

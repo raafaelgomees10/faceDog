@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+import Head from "../../../helper/head";
 import Input from "../../../form/Input";
 import Button from "../../../form/Button";
+import Error from "../../../helper/error";
+import { PHOTO_POST } from "../../../../api";
+import { useNavigate } from "react-router-dom";
 import useForm from "../../../../Hooks/useForm";
 import useFetch from "../../../../Hooks/useFetch";
-import { PHOTO_POST } from "../../../../api";
-import Error from "../../../helper/error";
-import { useNavigate } from "react-router-dom";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -43,6 +44,8 @@ const UserPhotoPost = () => {
   };
   return (
     <S.Section className="animeLeft">
+      <Head title="Poste sua foto" />
+
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="number" name="peso" {...peso} />

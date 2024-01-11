@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import * as S from "./styles.js";
-import { useLocation, useNavigate } from "react-router-dom";
+import useMedia from "../../../../Hooks/useMedia.js";
 import { UserContext } from "../../../../UserContext";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as FeedIcon } from "../../../../Assets/feed.svg";
 import { ReactComponent as SairIcon } from "../../../../Assets/sair.svg";
 import { ReactComponent as AdicionarIcon } from "../../../../Assets/adicionar.svg";
 import { ReactComponent as EstatisticasIcon } from "../../../../Assets/estatisticas.svg";
-import useMedia from "../../../../Hooks/useMedia.js";
 
 const HeaderNav = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
