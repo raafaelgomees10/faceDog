@@ -6,7 +6,10 @@ import Head from "../helper/head.js";
 const Home = () => {
   return (
     <S.Section className="container mainContainer">
-      <Head title="Fotos" description="Home do site dogs, com feed de fotos." />
+      <Head
+        title="Fotos"
+        description="Home do site FaceDog, com feed de fotos."
+      />
       <Feed />
     </S.Section>
   );

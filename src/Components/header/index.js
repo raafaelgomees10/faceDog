@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <S.Header>
       <S.Nav className="container">
-        <S.LinkLogo to="/" aria-label="Dogs - Home">
+        <S.LinkLogo to="/" aria-label="FaceDog - Home">
           <Dogs />
         </S.LinkLogo>
         {data ? (

@@ -32,7 +32,7 @@ const HeaderNav = () => {
           className={mobileMenu && "active"}
           aria-label="Menu"
           onClick={() => setMobileMenu(!mobileMenu)}
-        ></S.MobileButton>
+        />
       )}
 
       <S.Nav

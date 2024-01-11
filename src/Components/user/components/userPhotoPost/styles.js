@@ -6,6 +6,10 @@ export const Section = styled.section`
   gap: 2rem;
   margin-bottom: 2rem;
 
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
   & #img {
     margin-bottom: 1rem;
   }

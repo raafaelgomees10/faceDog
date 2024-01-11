@@ -1,8 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "FaceDog",
+  "name": "FaceDog - Rede Social para Cachorros ",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#fb1",
   "background_color": "#ffffff"
 }

@@ -15,7 +15,7 @@ const LoginRouter = () => {
     if (login === true) {
       return <Navigate to="/conta" />;
     }
-  }, []);
+  }, [login]);
 
   return (
     <S.Section>

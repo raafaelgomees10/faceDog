@@ -9,6 +9,7 @@ export const UserStorage = ({ children }) => {
   const [login, setLogin] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const userLogout = useCallback(async () => {
@@ -39,7 +40,7 @@ export const UserStorage = ({ children }) => {
       const tokenResponse = await fetch(url, options);
 
       if (!tokenResponse.ok) {
-        throw new Error(`Error: Usuário inválido!`);
+        throw new Error(`Usuário inválido!`);
       }
 
       const { token } = await tokenResponse.json();
