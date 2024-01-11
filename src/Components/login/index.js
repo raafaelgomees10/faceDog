@@ -3,9 +3,9 @@ import Login from "./login.js";
 import * as S from "./styles.js";
 import NotFound from "../notFound/index.js";
 import { UserContext } from "../../UserContext";
-import CreateUser from "./components/createUser/index";
-import ResetPassword from "./components/createUser/index";
-import ForgotPassword from "./components/createUser/index";
+import CreateUser from "./components/createUser/";
+import ResetPassword from "./components/resetPassword";
+import ForgotPassword from "./components/forgotPassword";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const LoginRouter = () => {
