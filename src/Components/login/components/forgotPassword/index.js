@@ -3,9 +3,9 @@ import Input from "../../../form/Input";
 import Head from "../../../helper/head";
 import Button from "../../../form/Button";
 import Error from "../../../helper/error";
+import { PASSWORD_LOST } from "../../../../api";
 import useForm from "../../../../Hooks/useForm";
 import useFetch from "../../../../Hooks/useFetch";
-import { PASSWORD_LOST } from "../../../../api";
 
 const ForgotPassword = () => {
   const login = useForm();
