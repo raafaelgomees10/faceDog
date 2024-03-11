@@ -1,4 +1,4 @@
-import { PHOTOS_GET, PHOTO_GET } from "../api";
+import { PHOTO_GET } from "../api";
 
 const FETCH_PHOTO_STARTED = "photo/fetchStarted";
 const FETCH_PHOTO_SUCCESS = "photo/fetchSuccess";

@@ -1,23 +1,31 @@
-import React, { useContext } from "react";
+import React from "react";
 import * as S from "./styles.js";
 import Input from "../form/Input.js";
 import Head from "../helper/head.js";
 import Button from "../form/Button.js";
 import Error from "../helper/error.js";
 import useForm from "../../Hooks/useForm.js";
-import { UserContext } from "../../UserContext.js";
+import { userLogin } from "../../store/user.js";
+import { useDispatch, useSelector } from "react-redux";
+// import { UserContext } from "../../UserContext.js";
 
 const Login = () => {
   const username = useForm();
   const password = useForm();
 
-  const { userLogin, error, loading } = useContext(UserContext);
+  // const { userLogin, error, loading } = useContext(UserContext);
+  const dispatch = useDispatch();
+  const { token, user } = useSelector((state) => state);
+  const loading = token.loading || user.loading;
+  const error = token.error || user.error;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      userLogin(username.value, password.value);
+      dispatch(
+        userLogin({ username: username.value, password: password.value })
+      );
     }
   };
   return (
