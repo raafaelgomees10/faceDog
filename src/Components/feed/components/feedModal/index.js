@@ -1,19 +1,18 @@
 import React, { useEffect } from "react";
 import * as S from "./styles.js";
 import Error from "../../../helper/error.js";
-import { PHOTO_GET } from "../../../../api.js";
 import Loading from "../../../helper/loading.js";
-import useFetch from "../../../../Hooks/useFetch.js";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPhoto } from "../../../../store/photo.js";
 import PhotoContent from "../../../photo/components/PhotoContent";
 
 const FeedModal = ({ photo, setModalPhoto }) => {
-  const { data, error, loading, request } = useFetch();
+  const { data, loading, error } = useSelector((state) => state.photo);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const { url, options } = PHOTO_GET(photo.id);
-
-    request(url, options);
-  }, [photo, request]);
+    dispatch(fetchPhoto(photo.id));
+  }, [dispatch, photo.id]);
 
   const handleCloseModal = (event) => {
     if (event.target === event.currentTarget) {
@@ -25,7 +24,7 @@ const FeedModal = ({ photo, setModalPhoto }) => {
     <S.Container onClick={handleCloseModal}>
       {error && <Error error={error} />}
       {loading && <Loading />}
-      {data && <PhotoContent data={data} />}
+      {data && <PhotoContent />}
     </S.Container>
   );
 };
