@@ -3,22 +3,26 @@ import * as S from "./styles.js";
 import Error from "../../../helper/error.js";
 import Loading from "../../../helper/loading.js";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPhoto } from "../../../../store/photo.js";
 import PhotoContent from "../../../photo/components/PhotoContent";
+import { closeModal } from "../../../../store/ui.js";
 
-const FeedModal = ({ photo, setModalPhoto }) => {
+const FeedModal = () => {
   const { data, loading, error } = useSelector((state) => state.photo);
   const dispatch = useDispatch();
+  const { modal } = useSelector((state) => state.ui);
 
   useEffect(() => {
-    dispatch(fetchPhoto(photo.id));
-  }, [dispatch, photo.id]);
+    dispatch(closeModal());
+  }, [dispatch]);
 
   const handleCloseModal = (event) => {
     if (event.target === event.currentTarget) {
-      setModalPhoto(null);
+      dispatch(closeModal());
     }
   };
+  if (!modal) {
+    return null;
+  }
 
   return (
     <S.Container onClick={handleCloseModal}>

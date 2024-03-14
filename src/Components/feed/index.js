@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Error from "../helper/error";
 import Loading from "../helper/loading";
@@ -10,8 +10,7 @@ import { loadNewPhotos, resetFeedState } from "../../store/feed";
 const Feed = ({ user }) => {
   // const [pages, setPages] = useState([1]);
   // const [infinite, setInfinite] = useState(true);  //estado que define se deve continuar ou não fazedo o scroll
-  const [modalPhoto, setModalPhoto] = useState(null);
-
+  // const [modalPhoto, setModalPhoto] = useState(null);
   const { infinite, loading, list, error } = useSelector((state) => state.feed);
 
   const dispatch = useDispatch();
@@ -54,11 +53,9 @@ const Feed = ({ user }) => {
 
   return (
     <div>
-      {modalPhoto && (
-        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
-      )}
+      <FeedModal />
 
-      {list.length > 0 && <FeedPhotos setModalPhoto={setModalPhoto} />}
+      {list.length > 0 && <FeedPhotos />}
       {loading && <Loading />}
       {error && <Error error={error} />}
 
