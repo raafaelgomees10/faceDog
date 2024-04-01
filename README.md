@@ -31,9 +31,11 @@ yarn start
 
 ## Contato
 
-Desenvolvido com :heart: por **[Rafael Gomes](https://www.linkedin.com/in/rafael-gomes-77ab23160/)** :copyright:
+Desenvolvido com :heart: por **[Rafael Gomes](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=description_github&utm_campaign=project_facedog)** :copyright:
 
 Para mais informações ou dúvidas basta apenas entrar em contato
 
 <a href="https://www.facebook.com/rafael.gomes.961pl/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/facebook/facebook-original.svg" width="30" heigth="30" alt="Rafael-facebook"></a>
-<a href="https://www.linkedin.com/in/rafael-gomes-77ab23160/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="30" heigth="30" alt="Rafael-linkedn"></a>
+<a href="https://www.linkedin.com/in/dev-rafael-gomes/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="30" heigth="30" alt="Rafael-linkedn"></a>
+
+Visite meu [portfolio](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=description_github&utm_campaign=project_facedog).
